@@ -31,7 +31,7 @@ inline duration<double> time_span;
 inline string instance, inputFileName, ans;
 inline ifstream fpIndex;
 inline ofstream outputFile;
-inline vector<int> npmMagazineCapacity, npmSwitchCost, npmCurrentToolSwitches, npmCurrentMakespan, npmCurrentFlowTime, mI, randomTools, localSearchImprovements, timeTracking;
+inline vector<int> npmMagazineCapacity, npmSwitchCost, npmCurrentToolSwitches, npmCurrentMakespan, npmCurrentFlowTime, mI, randomTools, localSearchImprovements, timeTracking, sequence;
 inline vector<set<int>> jobSets, magazines;
 inline set<tuple<int, int>> dist;
 inline vector<tuple<int,int>> oneBlocks, improvements;

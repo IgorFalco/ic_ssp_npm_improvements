@@ -4,8 +4,8 @@
 #include "global_vars.hpp"
 
 /* Metaheuristics */
-void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector);
-void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector);
+void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
+void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
 
 void jobInsertionDisturb();
 void jobExchangeDisturb();

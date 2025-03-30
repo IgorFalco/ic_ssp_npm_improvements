@@ -1,11 +1,14 @@
 {
     "files.associations": {
+        "*.yaml": "azure-pipelines",
         "iosfwd": "cpp",
         "vector": "cpp",
         "fstream": "cpp",
         "stdexcept": "cpp",
         "ostream": "cpp",
         "iostream": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "tuple": "cpp",
+        "format": "cpp"
     }
 }

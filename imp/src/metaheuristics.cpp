@@ -4,11 +4,11 @@
 #include "evaluation.hpp"
 #include "io.hpp"
 
-void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector) {
+void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence) {
     constructSimilarityMatrix();
     constructInitialSolution();
     improvements.push_back(make_tuple(0, evaluationFunction()));
-    bool stillHaveTime = VNDFull(evaluationFunction, evaluationVector);
+    bool stillHaveTime = VNDFull(evaluationFunction, evaluationVector, sequence);
     int it = evaluationFunction();
     timeTracking[0] = it;
     improvements.push_back(make_tuple(1, it));
@@ -29,7 +29,7 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
         }
         mI.clear();
         evaluationFunction();
-        stillHaveTime = VNDFullSim(evaluationFunction, evaluationVector);
+        stillHaveTime = VNDFullSim(evaluationFunction, evaluationVector, sequence);
 
         int neighborhoodBest = evaluationFunction();
         if(neighborhoodBest < best)
@@ -42,11 +42,11 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
     }
 }
 
-void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector) {
+void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence) {
     constructSimilarityMatrix();
     constructInitialSolution();
     improvements.push_back(make_tuple(0, evaluationFunction()));
-    bool stillHaveTime = VNDCrit(evaluationFunction, evaluationVector);
+    bool stillHaveTime = VNDCrit(evaluationFunction, evaluationVector, sequence);
     int it = evaluationFunction();
     timeTracking[0] = it;
     improvements.push_back(make_tuple(1, it));
@@ -66,7 +66,7 @@ void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVect
         }
         mI.clear();
         evaluationFunction();
-        stillHaveTime = VNDCritSim(evaluationFunction, evaluationVector);
+        stillHaveTime = VNDCritSim(evaluationFunction, evaluationVector, sequence);
         if(!stillHaveTime)
             break;
 

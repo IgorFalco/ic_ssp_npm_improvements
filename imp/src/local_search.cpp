@@ -1,185 +1,209 @@
 #include "local_search.hpp"
 
-bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector) {
-    int k = 1;
-    while (k != 5) {
+bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence) {
+    size_t index = 0;
+    while (index < sequence.size()) {
         time_span = duration_cast<duration<double>>(high_resolution_clock::now() - t1);
-        if(time_span.count() >= maxTime)
+        if (time_span.count() >= maxTime)
             return false;
-        currentBest = evaluationFunction();
-        switch(k) {
-            case 1 :
-                if(jobExchangeLocalSearchFull(evaluationFunction, evaluationVector, currentBest)) {
-                    summary.localSearchImprovements[0]++;
-                    k = 1;
-                }
-                else
-                    k++;
-                break;
-            case 2 :
-                if(jobInsertionLocalSearchFull(evaluationFunction, evaluationVector, currentBest)) {
-                    summary.localSearchImprovements[1]++;
-                    k = 1;
-                }
-                else
-                    k++;
-                break;
-            case 3 : 
-                if(swapLocalSearch(evaluationFunction, evaluationVector, currentBest)) {
-                    summary.localSearchImprovements[2]++;
-                    k = 1;
-                }
-                else
-                    k++;
-                break;
-            case 4 :
-                if(twoOptLocalSearch(evaluationFunction, evaluationVector, currentBest, false)) {
-                    summary.localSearchImprovements[3]++;
-                    k = 1;
-                }
-                else
-                    k++;
-                break;
-            
-        }
-    }
-    return true;
-}
 
-bool VNDFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector) {
-    int k = 1;
-    while (k != 5) {
-        time_span = duration_cast<duration<double>>(high_resolution_clock::now() - t1);
-        if(time_span.count() >= maxTime)
-            return false;
         currentBest = evaluationFunction();
-        switch(k) {
-            case 1 :
-                if(jobExchangeLocalSearchFullSim(evaluationFunction, evaluationVector, currentBest)) {
+        int k = sequence[index]; // Obtém o próximo movimento da sequência
+
+        switch (k) {
+            case 1:
+                if (jobExchangeLocalSearchFull(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[0]++;
-                    k = 1;
+                    index = 0; // Reinicia a sequência
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 2 :
-                if(jobInsertionLocalSearchFull(evaluationFunction, evaluationVector, currentBest)) {
+            case 2:
+                if (jobInsertionLocalSearchFull(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[1]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 3 : 
-                if(swapLocalSearchSim(evaluationFunction, evaluationVector, currentBest)) {
+            case 3:
+                if (swapLocalSearch(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[2]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 4 :
-                if(twoOptLocalSearchSim(evaluationFunction, evaluationVector, currentBest, false)) {
+            case 4:
+                if (twoOptLocalSearch(evaluationFunction, evaluationVector, currentBest, false)) {
                     summary.localSearchImprovements[3]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
+                break;
+            default:
+                index++; // Ignorar valores inválidos e seguir para o próximo
                 break;
         }
     }
     return true;
 }
 
-bool VNDCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector) {
-    int k = 1;
-    while (k < 5) {
+bool VNDFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence) {
+    size_t index = 0;
+    while (index < sequence.size()) {
         time_span = duration_cast<duration<double>>(high_resolution_clock::now() - t1);
-        if(time_span.count() >= maxTime)
+        if (time_span.count() >= maxTime)
             return false;
+
         currentBest = evaluationFunction();
-        switch(k) {
-            case 1 :
-                if(jobExchangeLocalSearchCrit(evaluationFunction, evaluationVector, currentBest)) {
+        int k = sequence[index]; // Obtém a próxima busca da sequência
+
+        switch (k) {
+            case 1:
+                if (jobExchangeLocalSearchFullSim(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[0]++;
-                    k = 1;
+                    index = 0; // Reinicia a sequência
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 2 :
-                if(jobInsertionLocalSearchCrit(evaluationFunction, evaluationVector, currentBest)) {
+            case 2:
+                if (jobInsertionLocalSearchFull(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[1]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 3 : 
-                if(swapLocalSearch(evaluationFunction, evaluationVector, currentBest)) {
+            case 3:
+                if (swapLocalSearchSim(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[2]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 4 :
-                if(twoOptLocalSearch(evaluationFunction, evaluationVector, currentBest, true)) {
+            case 4:
+                if (twoOptLocalSearchSim(evaluationFunction, evaluationVector, currentBest, false)) {
                     summary.localSearchImprovements[3]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
+                break;
+            default:
+                index++; // Ignora valores inválidos
                 break;
         }
     }
     return true;
 }
 
-bool VNDCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector) {
-    int k = 1;
-    while (k < 5) {
+bool VNDCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence) {
+    size_t index = 0;
+    while (index < sequence.size()) {
         time_span = duration_cast<duration<double>>(high_resolution_clock::now() - t1);
-        if(time_span.count() >= maxTime)
+        if (time_span.count() >= maxTime)
             return false;
+
         currentBest = evaluationFunction();
-        switch(k) {
-            case 1 :
-                if(jobExchangeLocalSearchCritSim(evaluationFunction, evaluationVector, currentBest)) {
+        int k = sequence[index];
+
+        switch (k) {
+            case 1:
+                if (jobExchangeLocalSearchCrit(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[0]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 2 :
-                if(jobInsertionLocalSearchCrit(evaluationFunction, evaluationVector, currentBest)) {
+            case 2:
+                if (jobInsertionLocalSearchCrit(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[1]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 3 : 
-                if(swapLocalSearchSim(evaluationFunction, evaluationVector, currentBest)) {
+            case 3:
+                if (swapLocalSearch(evaluationFunction, evaluationVector, currentBest)) {
                     summary.localSearchImprovements[2]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
                 break;
-            case 4 :
-                if(twoOptLocalSearchSim(evaluationFunction, evaluationVector, currentBest, true)) {
+            case 4:
+                if (twoOptLocalSearch(evaluationFunction, evaluationVector, currentBest, true)) {
                     summary.localSearchImprovements[3]++;
-                    k = 1;
+                    index = 0;
+                } else {
+                    index++;
                 }
-                else
-                    k++;
+                break;
+            default:
+                index++;
                 break;
         }
     }
     return true;
 }
+
+bool VNDCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence) {
+    size_t index = 0;
+    while (index < sequence.size()) {
+        time_span = duration_cast<duration<double>>(high_resolution_clock::now() - t1);
+        if (time_span.count() >= maxTime)
+            return false;
+
+        currentBest = evaluationFunction();
+        int k = sequence[index];
+
+        switch (k) {
+            case 1:
+                if (jobExchangeLocalSearchCritSim(evaluationFunction, evaluationVector, currentBest)) {
+                    summary.localSearchImprovements[0]++;
+                    index = 0;
+                } else {
+                    index++;
+                }
+                break;
+            case 2:
+                if (jobInsertionLocalSearchCrit(evaluationFunction, evaluationVector, currentBest)) {
+                    summary.localSearchImprovements[1]++;
+                    index = 0;
+                } else {
+                    index++;
+                }
+                break;
+            case 3:
+                if (swapLocalSearchSim(evaluationFunction, evaluationVector, currentBest)) {
+                    summary.localSearchImprovements[2]++;
+                    index = 0;
+                } else {
+                    index++;
+                }
+                break;
+            case 4:
+                if (twoOptLocalSearchSim(evaluationFunction, evaluationVector, currentBest, true)) {
+                    summary.localSearchImprovements[3]++;
+                    index = 0;
+                } else {
+                    index++;
+                }
+                break;
+            default:
+                index++;
+                break;
+        }
+    }
+    return true;
+}
+
 
 bool jobInsertionLocalSearchFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest) {
     for(int l = 0 ; l < machineCount ; l++) {

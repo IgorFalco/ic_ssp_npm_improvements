@@ -6,6 +6,7 @@
 *.lo
 *.o
 *.obj
+imp/testManager
 
 # Precompiled Headers
 *.gch
@@ -33,3 +34,5 @@
 
 # Old outputs
 imp/output/v1.0/*
+.vscode/*
+*.old*

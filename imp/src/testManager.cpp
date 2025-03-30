@@ -8,11 +8,13 @@ int main(int argc, char* argv[])
     srand(time(NULL));
     parseArguments(arguments);
 
+    cout << "Sequence: " << sequence << endl;
+
     if(fpIndex.is_open()) {
         while(fpIndex>>inputFileName) {
             Results *results = new Results();
             for(int i = 1 ; i <= runs ; i++) {
-                results->addSolution(singleRun(inputFileName, outputFile, i, objective));
+                results->addSolution(singleRun(inputFileName, outputFile, i, objective, sequence));
                 termination();
             }
             summary.addResults(results);
@@ -20,8 +22,10 @@ int main(int argc, char* argv[])
     }
     else if(fileExists(instance)) {
         Results *results = new Results();
-        results->addSolution(singleRun(instance, outputFile, 0, objective));
-        termination();
+        for(int i = 1 ; i <= runs ; i++) {
+            results->addSolution(singleRun(instance, outputFile, i, objective, sequence));
+            termination();
+        }
         summary.addResults(results);
     }
     else

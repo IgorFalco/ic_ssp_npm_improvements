@@ -7,7 +7,7 @@
 #include "metaheuristics.hpp"
 
 /* I/O */
-Instance singleRun(string inputFileName, ofstream& outputFile, int run, int objective);
+Instance singleRun(string inputFileName, ofstream& outputFile, int run, int objective, const vector<int> &sequence);
 void readProblem(string fileName);
 void parseArguments(vector<string> arguments);
 bool fileExists(const std::string& filename);

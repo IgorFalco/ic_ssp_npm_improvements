@@ -1,0 +1,912 @@
+RUN : 1 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 13, 16, 14, 5, 1]
+TOOL SWITCHES : 10
+MAKESPAN : 44
+
+- MACHINE [1]
+
+JOBS [8] - [7, 17, 18, 3, 10, 0, 9, 19]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [8, 2, 11, 15, 6, 12]
+TOOL SWITCHES : 2
+MAKESPAN : 37
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 482
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.40369
+--- IMPROVEMENT HISTORY : [9] - [(0, 69) ; (1, 56) ; (3, 53) ; (16, 51) ; (19, 48) ; (48, 47) ; (58, 46) ; (135, 45) ; (280, 44)]
+--- TIME TRACKING : [6] - [56, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 2 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 16, 4, 14, 13, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [10, 1, 18, 17, 3, 7, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [8, 12, 6, 19, 2, 0, 15]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 456
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.36454
+--- IMPROVEMENT HISTORY : [5] - [(0, 101) ; (1, 50) ; (5, 49) ; (6, 45) ; (87, 44)]
+--- TIME TRACKING : [6] - [50, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 3 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [16, 4, 5, 13, 14, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [1, 9, 18, 10, 17, 7, 3]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [12, 6, 8, 15, 19, 2, 0]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 461
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.39864
+--- IMPROVEMENT HISTORY : [8] - [(0, 84) ; (1, 52) ; (2, 51) ; (3, 50) ; (24, 47) ; (35, 46) ; (57, 45) ; (170, 44)]
+--- TIME TRACKING : [6] - [52, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 4 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 13, 14, 5, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [7] - [9, 1, 18, 10, 17, 3, 7]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [2, 6, 12, 8, 15, 0, 19]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 438
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.3863
+--- IMPROVEMENT HISTORY : [10] - [(0, 82) ; (1, 59) ; (2, 54) ; (4, 52) ; (6, 51) ; (7, 49) ; (13, 48) ; (16, 47) ; (57, 46) ; (198, 44)]
+--- TIME TRACKING : [6] - [59, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 5 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 14, 16, 4, 11, 13]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [3, 7, 9, 17, 1, 18, 10]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [15, 2, 12, 19, 6, 8, 0]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 455
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.36276
+--- IMPROVEMENT HISTORY : [4] - [(0, 87) ; (1, 47) ; (18, 46) ; (216, 44)]
+--- TIME TRACKING : [6] - [47, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 6 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 13, 14, 5, 1]
+TOOL SWITCHES : 9
+MAKESPAN : 42
+
+- MACHINE [1]
+
+JOBS [8] - [0, 10, 9, 19, 18, 17, 3, 7]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [11, 8, 6, 12, 15, 2]
+TOOL SWITCHES : 2
+MAKESPAN : 37
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 18
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 423
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.40816
+--- IMPROVEMENT HISTORY : [8] - [(0, 119) ; (1, 56) ; (1, 54) ; (7, 50) ; (8, 48) ; (15, 47) ; (50, 45) ; (55, 44)]
+--- TIME TRACKING : [6] - [56, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 7 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 14, 16, 13, 4, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [7] - [10, 9, 18, 1, 3, 17, 7]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [19, 2, 0, 15, 12, 6, 8]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 434
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.4114
+--- IMPROVEMENT HISTORY : [7] - [(0, 99) ; (1, 53) ; (3, 49) ; (34, 47) ; (51, 46) ; (95, 45) ; (130, 44)]
+--- TIME TRACKING : [6] - [53, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 8 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 14, 13, 5, 1]
+TOOL SWITCHES : 9
+MAKESPAN : 42
+
+- MACHINE [1]
+
+JOBS [8] - [19, 18, 17, 7, 0, 3, 10, 9]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [2, 6, 11, 8, 12, 15]
+TOOL SWITCHES : 2
+MAKESPAN : 37
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 18
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 415
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.35507
+--- IMPROVEMENT HISTORY : [10] - [(0, 80) ; (1, 59) ; (1, 55) ; (2, 52) ; (4, 51) ; (9, 50) ; (34, 48) ; (123, 47) ; (130, 45) ; (664, 44)]
+--- TIME TRACKING : [6] - [59, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 9 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [13, 14, 16, 4, 5, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [17, 7, 3, 18, 10, 1, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [19, 8, 12, 2, 6, 0, 15]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 479
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.40226
+--- IMPROVEMENT HISTORY : [6] - [(0, 101) ; (1, 49) ; (1, 48) ; (7, 46) ; (66, 45) ; (86, 44)]
+--- TIME TRACKING : [6] - [49, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 10 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [14, 16, 13, 4, 5, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [9, 10, 1, 17, 3, 7, 18]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [12, 19, 0, 15, 8, 6, 2]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 451
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.37904
+--- IMPROVEMENT HISTORY : [5] - [(0, 93) ; (1, 56) ; (1, 46) ; (33, 45) ; (35, 44)]
+--- TIME TRACKING : [6] - [56, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 11 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [13, 5, 14, 4, 16, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [10, 17, 18, 1, 9, 3, 7]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [12, 2, 8, 19, 0, 15, 6]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 467
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.34576
+--- IMPROVEMENT HISTORY : [6] - [(0, 101) ; (1, 52) ; (4, 47) ; (9, 46) ; (42, 45) ; (48, 44)]
+--- TIME TRACKING : [6] - [52, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 12 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 14, 13, 5, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [8] - [0, 19, 9, 7, 3, 18, 17, 10]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [6, 8, 12, 2, 15, 1]
+TOOL SWITCHES : 2
+MAKESPAN : 42
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 426
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.4628
+--- IMPROVEMENT HISTORY : [9] - [(0, 101) ; (1, 54) ; (5, 52) ; (7, 51) ; (8, 49) ; (9, 47) ; (18, 46) ; (114, 45) ; (117, 44)]
+--- TIME TRACKING : [6] - [54, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 13 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [14, 5, 16, 13, 4, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [8] - [10, 18, 17, 3, 7, 9, 0, 19]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [1, 8, 15, 2, 12, 6]
+TOOL SWITCHES : 2
+MAKESPAN : 42
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 466
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.38753
+--- IMPROVEMENT HISTORY : [6] - [(0, 72) ; (1, 48) ; (1, 47) ; (221, 46) ; (227, 45) ; (277, 44)]
+--- TIME TRACKING : [6] - [48, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 14 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 13, 14, 5, 1]
+TOOL SWITCHES : 9
+MAKESPAN : 42
+
+- MACHINE [1]
+
+JOBS [8] - [18, 17, 3, 7, 19, 0, 9, 10]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [2, 11, 6, 12, 8, 15]
+TOOL SWITCHES : 2
+MAKESPAN : 37
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 18
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 417
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.29004
+--- IMPROVEMENT HISTORY : [9] - [(0, 90) ; (1, 55) ; (2, 54) ; (3, 49) ; (5, 48) ; (57, 47) ; (211, 46) ; (292, 45) ; (305, 44)]
+--- TIME TRACKING : [6] - [55, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 15 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [16, 14, 5, 13, 4, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [8] - [10, 0, 9, 7, 3, 19, 18, 17]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [1, 6, 12, 8, 15, 2]
+TOOL SWITCHES : 2
+MAKESPAN : 42
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 471
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.41177
+--- IMPROVEMENT HISTORY : [5] - [(0, 84) ; (1, 56) ; (2, 48) ; (11, 45) ; (141, 44)]
+--- TIME TRACKING : [6] - [56, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 16 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [11, 1, 16, 4, 5, 14]
+TOOL SWITCHES : 13
+MAKESPAN : 44
+
+- MACHINE [1]
+
+JOBS [8] - [17, 18, 3, 7, 19, 0, 9, 10]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [6, 12, 8, 2, 15, 13]
+TOOL SWITCHES : 2
+MAKESPAN : 43
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 22
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 443
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.29703
+--- IMPROVEMENT HISTORY : [4] - [(0, 109) ; (1, 46) ; (15, 45) ; (171, 44)]
+--- TIME TRACKING : [6] - [46, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 17 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 13, 14, 5, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [7] - [18, 3, 7, 17, 10, 1, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [2, 15, 19, 12, 8, 0, 6]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 438
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.35017
+--- IMPROVEMENT HISTORY : [9] - [(0, 111) ; (1, 63) ; (2, 61) ; (3, 51) ; (13, 50) ; (30, 47) ; (32, 46) ; (133, 45) ; (195, 44)]
+--- TIME TRACKING : [6] - [63, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 18 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [16, 4, 14, 13, 5, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [17, 1, 18, 10, 9, 3, 7]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [15, 8, 2, 12, 0, 19, 6]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 430
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.31998
+--- IMPROVEMENT HISTORY : [7] - [(0, 99) ; (1, 51) ; (5, 50) ; (11, 48) ; (32, 47) ; (41, 46) ; (50, 44)]
+--- TIME TRACKING : [6] - [51, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 19 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [11, 16, 4, 14, 5, 13]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [8] - [19, 17, 18, 7, 3, 9, 0, 10]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [1, 15, 8, 2, 12, 6]
+TOOL SWITCHES : 2
+MAKESPAN : 42
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 448
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.38559
+--- IMPROVEMENT HISTORY : [8] - [(0, 109) ; (1, 52) ; (3, 50) ; (15, 48) ; (16, 47) ; (78, 46) ; (80, 45) ; (136, 44)]
+--- TIME TRACKING : [6] - [52, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 20 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [13, 5, 14, 16, 4, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [7] - [9, 1, 18, 10, 17, 7, 3]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [12, 6, 8, 15, 19, 2, 0]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 477
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.41296
+--- IMPROVEMENT HISTORY : [7] - [(0, 108) ; (1, 50) ; (7, 48) ; (43, 47) ; (79, 46) ; (304, 45) ; (614, 44)]
+--- TIME TRACKING : [6] - [50, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 21 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 4, 16, 13, 14, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [8] - [19, 17, 18, 7, 3, 9, 10, 1]
+TOOL SWITCHES : 6
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [2, 15, 0, 6, 12, 8]
+TOOL SWITCHES : 4
+MAKESPAN : 42
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 424
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.45083
+--- IMPROVEMENT HISTORY : [6] - [(0, 125) ; (1, 52) ; (2, 50) ; (3, 49) ; (14, 46) ; (17, 44)]
+--- TIME TRACKING : [6] - [52, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 22 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [14, 5, 13, 4, 16, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [18, 3, 7, 17, 1, 10, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [19, 0, 8, 6, 2, 12, 15]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 450
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.41609
+--- IMPROVEMENT HISTORY : [9] - [(0, 110) ; (1, 55) ; (5, 54) ; (6, 51) ; (7, 48) ; (10, 47) ; (56, 46) ; (187, 45) ; (204, 44)]
+--- TIME TRACKING : [6] - [55, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 23 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 14, 16, 4, 11, 1]
+TOOL SWITCHES : 12
+MAKESPAN : 42
+
+- MACHINE [1]
+
+JOBS [8] - [0, 19, 9, 7, 3, 17, 18, 10]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [13, 15, 12, 2, 8, 6]
+TOOL SWITCHES : 2
+MAKESPAN : 43
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 21
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 449
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.35764
+--- IMPROVEMENT HISTORY : [7] - [(0, 103) ; (1, 52) ; (9, 51) ; (37, 49) ; (82, 48) ; (205, 46) ; (302, 44)]
+--- TIME TRACKING : [6] - [52, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 24 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [16, 4, 5, 13, 14, 1]
+TOOL SWITCHES : 10
+MAKESPAN : 44
+
+- MACHINE [1]
+
+JOBS [8] - [7, 3, 17, 18, 19, 9, 10, 0]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [11, 6, 2, 12, 15, 8]
+TOOL SWITCHES : 2
+MAKESPAN : 37
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 420
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.41204
+--- IMPROVEMENT HISTORY : [7] - [(0, 84) ; (1, 56) ; (2, 52) ; (11, 50) ; (50, 49) ; (51, 45) ; (452, 44)]
+--- TIME TRACKING : [6] - [56, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 25 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 13, 5, 14, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [10, 18, 1, 9, 3, 7, 17]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [8, 19, 15, 0, 12, 6, 2]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 444
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.38889
+--- IMPROVEMENT HISTORY : [6] - [(0, 130) ; (1, 49) ; (12, 47) ; (76, 46) ; (191, 45) ; (192, 44)]
+--- TIME TRACKING : [6] - [49, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 26 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [4, 16, 13, 14, 5, 11]
+TOOL SWITCHES : 10
+MAKESPAN : 41
+
+- MACHINE [1]
+
+JOBS [7] - [10, 18, 1, 17, 7, 3, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [19, 2, 0, 15, 12, 6, 8]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 19
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 438
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.4171
+--- IMPROVEMENT HISTORY : [11] - [(0, 135) ; (1, 62) ; (1, 54) ; (4, 53) ; (11, 51) ; (44, 49) ; (155, 48) ; (159, 47) ; (161, 46) ; (199, 45) ; (227, 44)]
+--- TIME TRACKING : [6] - [62, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 27 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 16, 4, 14, 13, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [8] - [17, 3, 7, 18, 19, 9, 0, 10]
+TOOL SWITCHES : 7
+MAKESPAN : 44
+
+- MACHINE [2]
+
+JOBS [6] - [12, 2, 8, 6, 15, 1]
+TOOL SWITCHES : 2
+MAKESPAN : 42
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 444
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.35773
+--- IMPROVEMENT HISTORY : [7] - [(0, 125) ; (1, 58) ; (1, 54) ; (2, 52) ; (3, 47) ; (4, 45) ; (195, 44)]
+--- TIME TRACKING : [6] - [58, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 28 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 11, 4, 16, 14, 13]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [3, 7, 18, 17, 10, 1, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [2, 19, 15, 12, 6, 0, 8]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 455
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.38678
+--- IMPROVEMENT HISTORY : [6] - [(0, 90) ; (1, 51) ; (3, 49) ; (13, 47) ; (50, 46) ; (234, 44)]
+--- TIME TRACKING : [6] - [51, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 29 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [14, 16, 13, 4, 5, 11]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [7, 3, 18, 17, 10, 1, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [19, 2, 6, 15, 0, 8, 12]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 452
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.35814
+--- IMPROVEMENT HISTORY : [8] - [(0, 120) ; (1, 54) ; (3, 53) ; (5, 52) ; (6, 50) ; (8, 49) ; (11, 45) ; (47, 44)]
+--- TIME TRACKING : [6] - [54, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+RUN : 30 - instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+
+- MACHINE [0]
+
+JOBS [6] - [5, 14, 16, 4, 11, 13]
+TOOL SWITCHES : 11
+MAKESPAN : 43
+
+- MACHINE [1]
+
+JOBS [7] - [3, 7, 18, 17, 1, 10, 9]
+TOOL SWITCHES : 6
+MAKESPAN : 43
+
+- MACHINE [2]
+
+JOBS [7] - [19, 2, 0, 12, 6, 15, 8]
+TOOL SWITCHES : 3
+MAKESPAN : 44
+
+# -------------------------- #
+
+--- TOTAL TOOL SWITCHES : 20
+--- HIGHEST MAKESPAN : 44
+--- TOTAL FLOWTIME : 435
+--- COMPLETED ITERATIONS : 999
+--- RUNNING TIME : 1.38535
+--- IMPROVEMENT HISTORY : [8] - [(0, 127) ; (1, 57) ; (1, 56) ; (5, 50) ; (7, 49) ; (11, 47) ; (17, 45) ; (34, 44)]
+--- TIME TRACKING : [6] - [57, 2147483647, 2147483647, 2147483647, 2147483647, 2147483647]
+
+--------- SUMMARY ---------
+
+Input: instancias_txt/SSP-NPM-I/ins160_m=3_j=20_t=20_var=20.txt
+Objective: 2
+Average TS: 18 (18.00)
+Average Makespan: 44 (44.00)
+Average Flowtime: 415 (415.00)
+Mean Standard Deviation TS: 0.00
+Mean Standard Deviation Makespan: 0.00
+Mean Standard Deviation Flowtime: 18.00
+Trajectory : [9] - [(0, 120) ; (1, 55) ; (2, 52) ; (3, 50) ; (4, 48) ; (10, 47) ; (14, 46) ; (17, 44) ; (999, 44)]
+LS Improvements : [5] - [16867, 63636, 0, 161, 0]

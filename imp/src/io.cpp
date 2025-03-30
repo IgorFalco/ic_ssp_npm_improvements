@@ -1,5 +1,5 @@
 #include "io.hpp"
-Instance singleRun(string inputFileName, ofstream& outputFile, int run, int objective) {
+Instance singleRun(string inputFileName, ofstream& outputFile, int run, int objective, const vector<int> &sequence) {
     double runningTime;
     readProblem(inputFileName);
     checkMachinesEligibility();
@@ -8,13 +8,13 @@ Instance singleRun(string inputFileName, ofstream& outputFile, int run, int obje
 
     switch(objective) {
         case 1 : 
-            ILSFull(GPCA, npmCurrentToolSwitches);
+            ILSFull(GPCA, npmCurrentToolSwitches, sequence);
             break;
         case 2 :
-            ILSCrit(makespanEvaluation, npmCurrentMakespan);
+            ILSCrit(makespanEvaluation, npmCurrentMakespan, sequence);
             break;
         case 3 :
-            ILSFull(flowtimeEvaluation, npmCurrentFlowTime);
+            ILSFull(flowtimeEvaluation, npmCurrentFlowTime, sequence);
             break;
     }
 
@@ -269,13 +269,23 @@ void parseArguments(vector<string> arguments) {
                 throw invalid_argument("ERROR : Input file doesn't exist");
         }
         else if (arguments[i]=="--output") {
-            if(fileExists(arguments[i + 1])) {
-                cout << "Output file \"" << arguments[i + 1] << "\" already exists. Overwrite? ";
-                cin >> ans;
-                if(ans == "n" || ans == "no") 
-                    exit(0);
-            }
+            // if(fileExists(arguments[i + 1])) {
+            //     cout << "Output file \"" << arguments[i + 1] << "\" already exists. Overwrite? ";
+            //     cin >> ans;
+            //     if(ans == "n" || ans == "no") 
+            //         exit(0);
+            // }
             outputFile.open(arguments[i + 1]);
+        }else if (arguments[i] == "--sequence") {
+            string seqStr = arguments[i + 1];
+            sequence.clear();
+            for (char ch : seqStr) {
+                if (isdigit(ch)) {
+                    sequence.push_back(ch - '0');
+                } else {
+                    throw invalid_argument("ERROR: Sequence must contain only digits.");
+                }
+            }
         }
     }
 }
