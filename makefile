@@ -3,7 +3,7 @@ SRC_DIR := src
 INCLUDE_DIR := include
 BUILD_DIR := build
 BIN_DIR := bin
-BIN := $(BIN_DIR)/testManager
+BIN := $(BIN_DIR)/ssp_npm_solver.out
 
 # Compiler
 CXX := g++

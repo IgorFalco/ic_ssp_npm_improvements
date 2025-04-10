@@ -1,3 +1,6 @@
 build/*
 bin/*
 .vscode/*
+
+#Todas as pastas e arquivos que iniciam com '__' serão ignorados
+*__*

@@ -7,21 +7,21 @@
 #include "metaheuristics.hpp"
 
 /* I/O */
-Instance singleRun(string inputFileName, ofstream& outputFile, int run, int objective);
+Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence);
 void readProblem(string fileName);
 void parseArguments(vector<string> arguments);
-bool fileExists(const std::string& filename);
+bool fileExists(const std::string &filename);
 template <typename S>
 void printSolution(string inputFileName, double runningTime, int objective, int run, S &s);
 void printSummary(string input);
 template <typename T>
-ostream& operator<<(ostream& os, const vector<T>& v);
-template<typename T>
-ostream& operator<< (ostream& out, const vector<vector<T>>& matrix);
-template<typename T>
-ostream& operator<<(ostream& out, const set<T>& m);
+ostream &operator<<(ostream &os, const vector<T> &v);
 template <typename T>
-ostream& operator<<(ostream& os, const vector<tuple<T, T>>& vector);
+ostream &operator<<(ostream &out, const vector<vector<T>> &matrix);
+template <typename T>
+ostream &operator<<(ostream &out, const set<T> &m);
+template <typename T>
+ostream &operator<<(ostream &os, const vector<tuple<T, T>> &vector);
 
 /* Initializes and terminates all data structures */
 void initialization();
