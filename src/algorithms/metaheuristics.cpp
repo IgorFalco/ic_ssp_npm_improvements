@@ -1,7 +1,7 @@
 #include "metaheuristics.hpp"
 #include "constructive_heuristics.hpp"
 #include "local_search.hpp"
-#include "evaluation.hpp"
+#include "../utils/evaluation.hpp"
 #include "io.hpp"
 
 void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)

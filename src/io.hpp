@@ -2,9 +2,9 @@
 #define IO_HPP
 
 #include "global_vars.hpp"
-#include "eligibility.hpp"
-#include "evaluation.hpp"
-#include "metaheuristics.hpp"
+#include "utils/eligibility.hpp"
+#include "utils/evaluation.hpp"
+#include "algorithms/metaheuristics.hpp"
 
 /* I/O */
 Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence);
