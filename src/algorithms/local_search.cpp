@@ -1,4 +1,5 @@
 #include "local_search.hpp"
+#include "summary.hpp"
 
 bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
 {

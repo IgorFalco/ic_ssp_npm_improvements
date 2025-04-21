@@ -1,4 +1,5 @@
 #include "io.hpp"
+
 Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence)
 {
   double runningTime;

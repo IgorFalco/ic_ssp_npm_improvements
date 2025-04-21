@@ -1,4 +1,6 @@
 #include "global_vars.hpp"
+#include "results.hpp"
+#include "summary.hpp"
 #include "io.hpp"
 
 int main(int argc, char *argv[])

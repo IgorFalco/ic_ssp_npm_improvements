@@ -2,6 +2,8 @@
 #define IO_HPP
 
 #include "global_vars.hpp"
+#include "summary.hpp"
+#include "results.hpp"
 #include "utils/eligibility.hpp"
 #include "utils/evaluation.hpp"
 #include "algorithms/metaheuristics.hpp"
