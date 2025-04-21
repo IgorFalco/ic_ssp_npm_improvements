@@ -7,9 +7,9 @@
 using namespace std;
 using namespace std::chrono;
 
-void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary)
+void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary, Settings &settings)
 {
-  constructSimilarityMatrix();
+  constructSimilarityMatrix(settings);
   constructInitialSolution();
   improvements.push_back(make_tuple(0, evaluationFunction()));
   bool stillHaveTime = VNDFull(evaluationFunction, evaluationVector, sequence, summary);
@@ -21,12 +21,12 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   mt19937 gen(rd());
   uniform_real_distribution<> dis(0.0, 1.0);
 
-  while (iterations++ < maxIterations && stillHaveTime)
+  while (iterations++ < settings.maxIterations && stillHaveTime)
   {
     npmJobAssignement = bestSolution;
-    for (int i = 0; i < ceil(disturbSize * jobCount); i++)
+    for (int i = 0; i < ceil(settings.disturbSize * jobCount); i++)
     {
-      if (dis(gen) < criticJobPercentage)
+      if (dis(gen) < settings.criticJobPercentage)
       {
         if (!criticJobDisturb())
           jobInsertionDisturb();
@@ -49,9 +49,9 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   }
 }
 
-void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary)
+void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary, Settings &settings)
 {
-  constructSimilarityMatrix();
+  constructSimilarityMatrix(settings);
   constructInitialSolution();
   improvements.push_back(make_tuple(0, evaluationFunction()));
   bool stillHaveTime = VNDCrit(evaluationFunction, evaluationVector, sequence, summary);
@@ -63,12 +63,12 @@ void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   mt19937 gen(rd());
   uniform_real_distribution<> dis(0.0, 1.0);
 
-  while (iterations++ < maxIterations && stillHaveTime)
+  while (iterations++ < settings.maxIterations && stillHaveTime)
   {
     npmJobAssignement = bestSolution;
-    for (int i = 0; i < ceil(disturbSize * jobCount); i++)
+    for (int i = 0; i < ceil(settings.disturbSize * jobCount); i++)
     {
-      if (dis(gen) < criticJobPercentage)
+      if (dis(gen) < settings.criticJobPercentage)
         if (!criticJobDisturb())
           jobInsertionDisturb();
         else

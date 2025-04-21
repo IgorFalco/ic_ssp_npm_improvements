@@ -21,13 +21,11 @@
 
 #define PRINT_MATRIX false
 
-inline int runs = 1, objective, maxIterations = 1000, flowtimeSum, flowtimeAux, iterations, objectives[] = {1 /*TS*/, 2 /*Makespan*/, 3 /*Flowtime*/};
+inline int flowtimeSum, flowtimeAux, iterations, objectives[] = {1 /*TS*/, 2 /*Makespan*/, 3 /*Flowtime*/};
 inline int machineCount, toolCount, jobCount, currentBest, best, beforeSwap1, beforeSwap2, maxTime = 3600;
-inline float disturbSize = 0.085, oneBlockPercentage = 0.25, similarityPercentage = 0.7, criticJobPercentage = 0.65, lowestMakespanPercentage = 0.5;
+inline float lowestMakespanPercentage = 0.5;
 inline std::chrono::duration<double> time_span;
-inline std::string instance, inputFileName, ans;
-inline std::ifstream fpIndex;
-inline std::ofstream outputFile;
+inline std::string ans;
 inline std::vector<int> npmMagazineCapacity, npmSwitchCost, npmCurrentToolSwitches, npmCurrentMakespan, npmCurrentFlowTime, mI, randomTools, localSearchImprovements, timeTracking, sequence;
 inline std::vector<std::set<int>> jobSets, magazines;
 inline std::set<std::tuple<int, int>> dist;
