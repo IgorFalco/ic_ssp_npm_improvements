@@ -1,6 +1,9 @@
 #include "io.hpp"
 
-Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence)
+using namespace std::chrono;
+using namespace std;
+
+Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence, Summary &summary)
 {
   double runningTime;
   readProblem(inputFileName);
@@ -11,13 +14,13 @@ Instance singleRun(string inputFileName, ofstream &outputFile, int run, int obje
   switch (objective)
   {
   case 1:
-    ILSFull(GPCA, npmCurrentToolSwitches, sequence);
+    ILSFull(GPCA, npmCurrentToolSwitches, sequence, summary);
     break;
   case 2:
-    ILSCrit(makespanEvaluation, npmCurrentMakespan, sequence);
+    ILSCrit(makespanEvaluation, npmCurrentMakespan, sequence, summary);
     break;
   case 3:
-    ILSFull(flowtimeEvaluation, npmCurrentFlowTime, sequence);
+    ILSFull(flowtimeEvaluation, npmCurrentFlowTime, sequence, summary);
     break;
   }
 
@@ -244,7 +247,7 @@ void printSolution(string inputFileName, double runningTime, int objective, int 
   s << "--- TIME TRACKING : " << timeTracking << endl;
 }
 
-void printSummary(string input)
+void printSummary(string input, Summary &summary)
 {
   cout << "Input: " << input << endl;
   cout << "Objective: " << objective << endl;

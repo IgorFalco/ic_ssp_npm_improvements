@@ -19,25 +19,22 @@
 #include <cmath>
 #include <iomanip>
 
-using namespace std;
-using namespace std::chrono;
-
 #define PRINT_MATRIX false
 
 inline int runs = 1, objective, maxIterations = 1000, flowtimeSum, flowtimeAux, iterations, objectives[] = {1 /*TS*/, 2 /*Makespan*/, 3 /*Flowtime*/};
 inline int machineCount, toolCount, jobCount, currentBest, best, beforeSwap1, beforeSwap2, maxTime = 3600;
 inline float disturbSize = 0.085, oneBlockPercentage = 0.25, similarityPercentage = 0.7, criticJobPercentage = 0.65, lowestMakespanPercentage = 0.5;
-inline duration<double> time_span;
-inline string instance, inputFileName, ans;
-inline ifstream fpIndex;
-inline ofstream outputFile;
-inline vector<int> npmMagazineCapacity, npmSwitchCost, npmCurrentToolSwitches, npmCurrentMakespan, npmCurrentFlowTime, mI, randomTools, localSearchImprovements, timeTracking, sequence;
-inline vector<set<int>> jobSets, magazines;
-inline set<tuple<int, int>> dist;
-inline vector<tuple<int, int>> oneBlocks, improvements;
-inline vector<vector<int>> npmJobAssignement, bestSolution, toolsRequirements, npmJobTime, npmCurrentMagazines, npmToolsNeedDistance;
-inline vector<vector<int>> toolsDistancesGPCA, jobEligibility;
-inline vector<vector<bool>> similarityMatrix;
-inline high_resolution_clock::time_point t1, t2;
+inline std::chrono::duration<double> time_span;
+inline std::string instance, inputFileName, ans;
+inline std::ifstream fpIndex;
+inline std::ofstream outputFile;
+inline std::vector<int> npmMagazineCapacity, npmSwitchCost, npmCurrentToolSwitches, npmCurrentMakespan, npmCurrentFlowTime, mI, randomTools, localSearchImprovements, timeTracking, sequence;
+inline std::vector<std::set<int>> jobSets, magazines;
+inline std::set<std::tuple<int, int>> dist;
+inline std::vector<std::tuple<int, int>> oneBlocks, improvements;
+inline std::vector<std::vector<int>> npmJobAssignement, bestSolution, toolsRequirements, npmJobTime, npmCurrentMagazines, npmToolsNeedDistance;
+inline std::vector<std::vector<int>> toolsDistancesGPCA, jobEligibility;
+inline std::vector<std::vector<bool>> similarityMatrix;
+inline std::chrono::high_resolution_clock::time_point t1, t2;
 
 #endif

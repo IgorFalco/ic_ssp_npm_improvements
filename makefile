@@ -7,11 +7,13 @@ BIN_DIR := bin
 # Detectar sistema operacional
 ifeq ($(OS),Windows_NT)
     EXE := .exe
-    RM := del /Q /S
+    DEL_FILE := del /Q
+    RMDIR := rmdir /S /Q
     MKDIR = if not exist "$(subst /,\,$(1))" mkdir "$(subst /,\,$(1))"
 else
     EXE :=
-    RM := rm -rf
+    DEL_FILE := rm -f
+    RMDIR := rm -rf
     MKDIR = mkdir -p $(1)
 endif
 
@@ -55,7 +57,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 # Limpeza
 clean:
-	$(RM) $(BUILD_DIR) $(BIN)
+	$(RMDIR) $(BUILD_DIR) $(BIN_DIR)
 
 # Modos
 debug:

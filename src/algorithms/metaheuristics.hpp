@@ -2,10 +2,11 @@
 #define METAHEURISTICS_HPP
 
 #include "global_vars.hpp"
+#include "summary.hpp"
 
 /* Metaheuristics */
-void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
-void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
+void ILSCrit(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, const std::vector<int> &sequence, Summary &summary);
+void ILSFull(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, const std::vector<int> &sequence, Summary &summary);
 
 void jobInsertionDisturb();
 void jobExchangeDisturb();
@@ -13,6 +14,6 @@ void twoOptDisturb();
 void swapDisturb();
 bool criticJobDisturb();
 
-void updateBestSolution(function<int(void)> evaluationFunction);
+void updateBestSolution(std::function<int(void)> evaluationFunction);
 
 #endif

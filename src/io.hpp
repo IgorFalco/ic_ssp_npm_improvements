@@ -9,21 +9,21 @@
 #include "algorithms/metaheuristics.hpp"
 
 /* I/O */
-Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence);
-void readProblem(string fileName);
-void parseArguments(vector<string> arguments);
+Instance singleRun(std::string inputFileName, std::ofstream &outputFile, int run, int objective, const std::vector<int> &sequence, Summary &summary);
+void readProblem(std::string fileName);
+void parseArguments(std::vector<std::string> arguments);
 bool fileExists(const std::string &filename);
 template <typename S>
-void printSolution(string inputFileName, double runningTime, int objective, int run, S &s);
-void printSummary(string input);
+void printSolution(std::string inputFileName, double runningTime, int objective, int run, S &s);
+void printSummary(std::string input, Summary &summary);
 template <typename T>
-ostream &operator<<(ostream &os, const vector<T> &v);
+std::ostream &operator<<(std::ostream &os, const std::vector<T> &v);
 template <typename T>
-ostream &operator<<(ostream &out, const vector<vector<T>> &matrix);
+std::ostream &operator<<(std::ostream &out, const std::vector<std::vector<T>> &matrix);
 template <typename T>
-ostream &operator<<(ostream &out, const set<T> &m);
+std::ostream &operator<<(std::ostream &out, const std::set<T> &m);
 template <typename T>
-ostream &operator<<(ostream &os, const vector<tuple<T, T>> &vector);
+std::ostream &operator<<(std::ostream &os, const std::vector<std::tuple<T, T>> &vector);
 
 /* Initializes and terminates all data structures */
 void initialization();

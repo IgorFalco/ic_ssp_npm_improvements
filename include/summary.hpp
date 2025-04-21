@@ -84,13 +84,13 @@ public:
       {
         for (int k = 0; k < results[i]->solutions[j].improvements.size(); k++)
         {
-          if (!trajectory[get<0>(results[i]->solutions[j].improvements[k])])
+          if (!trajectory[std::get<0>(results[i]->solutions[j].improvements[k])])
           {
-            trajectory[get<0>(results[i]->solutions[j].improvements[k])] = get<1>(results[i]->solutions[j].improvements[k]);
+            trajectory[std::get<0>(results[i]->solutions[j].improvements[k])] = std::get<1>(results[i]->solutions[j].improvements[k]);
           }
           else
           {
-            trajectory[get<0>(results[i]->solutions[j].improvements[k])] = (get<1>(results[i]->solutions[j].improvements[k]) + trajectory[get<0>(results[i]->solutions[j].improvements[k])]) / 2;
+            trajectory[std::get<0>(results[i]->solutions[j].improvements[k])] = (std::get<1>(results[i]->solutions[j].improvements[k]) + trajectory[std::get<0>(results[i]->solutions[j].improvements[k])]) / 2;
           }
         }
       }
@@ -110,10 +110,8 @@ public:
       if (trajectory[i] != trajectory[i - 1])
         dots.push_back(std::make_tuple(i, trajectory[i]));
     }
-      dots.push_back(std::make_tuple((int)getMeanCompletedIterations(), get<1>(dots[dots.size() - 1])));
+    dots.push_back(std::make_tuple((int)getMeanCompletedIterations(), std::get<1>(dots[dots.size() - 1])));
 
     return dots;
   }
 };
-
-inline Summary summary;

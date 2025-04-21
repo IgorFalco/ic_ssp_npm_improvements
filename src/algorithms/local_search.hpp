@@ -2,26 +2,27 @@
 #define LOCAL_SEARCH_HPP
 
 #include "global_vars.hpp"
+#include "summary.hpp"
 
-bool VNDCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
-bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
-bool VNDCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
-bool VNDFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence);
+bool VNDCrit(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, const std::vector<int> &sequence, Summary &summary);
+bool VNDFull(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, const std::vector<int> &sequence, Summary &summary);
+bool VNDCritSim(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, const std::vector<int> &sequence, Summary &summary);
+bool VNDFullSim(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, const std::vector<int> &sequence, Summary &summary);
 
 /* Local search methods */
-/* 0 */ bool jobInsertionLocalSearchCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-/* 0 */ bool jobInsertionLocalSearchFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-/* 1 */ bool twoOptLocalSearch(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest, bool onlyCriticalMachine);
-/* 2 */ bool jobExchangeLocalSearchCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-/* 2 */ bool jobExchangeLocalSearchFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-/* 3 */ bool swapLocalSearch(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-bool oneBlockLocalSearch(function<int(void)> &evaluationFunction, vector<int> &evaluationVector, int currentBest);
-bool oneBlockLocalSearchCrit(function<int(void)> &evaluationFunction, vector<int> &evaluationVector, int currentBest);
-vector<tuple<int, int>> findOneBlocks(int machineIndex, int tool);
+/* 0 */ bool jobInsertionLocalSearchCrit(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+/* 0 */ bool jobInsertionLocalSearchFull(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+/* 1 */ bool twoOptLocalSearch(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest, bool onlyCriticalMachine);
+/* 2 */ bool jobExchangeLocalSearchCrit(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+/* 2 */ bool jobExchangeLocalSearchFull(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+/* 3 */ bool swapLocalSearch(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+bool oneBlockLocalSearch(std::function<int(void)> &evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+bool oneBlockLocalSearchCrit(std::function<int(void)> &evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+std::vector<std::tuple<int, int>> findOneBlocks(int machineIndex, int tool);
 
-bool swapLocalSearchSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-bool twoOptLocalSearchSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest, bool onlyCriticalMachine);
-bool jobExchangeLocalSearchFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
-bool jobExchangeLocalSearchCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest);
+bool swapLocalSearchSim(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+bool twoOptLocalSearchSim(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest, bool onlyCriticalMachine);
+bool jobExchangeLocalSearchFullSim(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
+bool jobExchangeLocalSearchCritSim(std::function<int(void)> evaluationFunction, std::vector<int> &evaluationVector, int currentBest);
 
 #endif

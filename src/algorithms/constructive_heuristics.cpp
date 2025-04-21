@@ -1,5 +1,7 @@
 #include "constructive_heuristics.hpp"
 
+using namespace std;
+
 void randomInitialSolution()
 {
   vector<int> r(jobCount);
