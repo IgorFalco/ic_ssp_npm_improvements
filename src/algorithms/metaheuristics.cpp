@@ -1,15 +1,18 @@
 #include "metaheuristics.hpp"
 #include "constructive_heuristics.hpp"
 #include "local_search.hpp"
-#include "evaluation.hpp"
+#include "../utils/evaluation.hpp"
 #include "io.hpp"
 
-void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
+using namespace std;
+using namespace std::chrono;
+
+void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary, Settings &settings)
 {
-  constructSimilarityMatrix();
+  constructSimilarityMatrix(settings);
   constructInitialSolution();
   improvements.push_back(make_tuple(0, evaluationFunction()));
-  bool stillHaveTime = VNDFull(evaluationFunction, evaluationVector, sequence);
+  bool stillHaveTime = VNDFull(evaluationFunction, evaluationVector, sequence, summary);
   int it = evaluationFunction();
   timeTracking[0] = it;
   improvements.push_back(make_tuple(1, it));
@@ -18,12 +21,12 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   mt19937 gen(rd());
   uniform_real_distribution<> dis(0.0, 1.0);
 
-  while (iterations++ < maxIterations && stillHaveTime)
+  while (iterations++ < settings.maxIterations && stillHaveTime)
   {
     npmJobAssignement = bestSolution;
-    for (int i = 0; i < ceil(disturbSize * jobCount); i++)
+    for (int i = 0; i < ceil(settings.disturbSize * jobCount); i++)
     {
-      if (dis(gen) < criticJobPercentage)
+      if (dis(gen) < settings.criticJobPercentage)
       {
         if (!criticJobDisturb())
           jobInsertionDisturb();
@@ -33,7 +36,7 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
     }
     mI.clear();
     evaluationFunction();
-    stillHaveTime = VNDFullSim(evaluationFunction, evaluationVector, sequence);
+    stillHaveTime = VNDFullSim(evaluationFunction, evaluationVector, sequence, summary);
 
     int neighborhoodBest = evaluationFunction();
     if (neighborhoodBest < best)
@@ -46,12 +49,12 @@ void ILSFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   }
 }
 
-void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
+void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary, Settings &settings)
 {
-  constructSimilarityMatrix();
+  constructSimilarityMatrix(settings);
   constructInitialSolution();
   improvements.push_back(make_tuple(0, evaluationFunction()));
-  bool stillHaveTime = VNDCrit(evaluationFunction, evaluationVector, sequence);
+  bool stillHaveTime = VNDCrit(evaluationFunction, evaluationVector, sequence, summary);
   int it = evaluationFunction();
   timeTracking[0] = it;
   improvements.push_back(make_tuple(1, it));
@@ -60,12 +63,12 @@ void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   mt19937 gen(rd());
   uniform_real_distribution<> dis(0.0, 1.0);
 
-  while (iterations++ < maxIterations && stillHaveTime)
+  while (iterations++ < settings.maxIterations && stillHaveTime)
   {
     npmJobAssignement = bestSolution;
-    for (int i = 0; i < ceil(disturbSize * jobCount); i++)
+    for (int i = 0; i < ceil(settings.disturbSize * jobCount); i++)
     {
-      if (dis(gen) < criticJobPercentage)
+      if (dis(gen) < settings.criticJobPercentage)
         if (!criticJobDisturb())
           jobInsertionDisturb();
         else
@@ -73,7 +76,7 @@ void ILSCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVect
     }
     mI.clear();
     evaluationFunction();
-    stillHaveTime = VNDCritSim(evaluationFunction, evaluationVector, sequence);
+    stillHaveTime = VNDCritSim(evaluationFunction, evaluationVector, sequence, summary);
     if (!stillHaveTime)
       break;
 

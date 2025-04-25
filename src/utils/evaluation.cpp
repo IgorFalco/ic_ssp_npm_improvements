@@ -1,5 +1,7 @@
 #include "evaluation.hpp"
 
+using namespace std;
+
 vector<set<tuple<int, int>>> criticJobEvaluation()
 {
   vector<set<tuple<int, int>>> cJ(machineCount);

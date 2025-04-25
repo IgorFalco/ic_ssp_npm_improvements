@@ -1,5 +1,7 @@
 #include "constructive_heuristics.hpp"
 
+using namespace std;
+
 void randomInitialSolution()
 {
   vector<int> r(jobCount);
@@ -71,11 +73,11 @@ void constructInitialSolution()
   }
 }
 
-void constructSimilarityMatrix()
+void constructSimilarityMatrix(Settings &settings)
 {
   for (int i = 0; i < jobCount; i++)
   {
     for (int j = 0; j < jobCount; j++)
-      similarityMatrix[i][j] = ((calcJobDifferences(i, j) / (double)toolCount) >= similarityPercentage);
+      similarityMatrix[i][j] = ((calcJobDifferences(i, j) / (double)toolCount) >= settings.similarityPercentage);
   }
 }

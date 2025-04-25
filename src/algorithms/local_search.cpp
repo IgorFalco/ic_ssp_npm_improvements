@@ -1,6 +1,10 @@
 #include "local_search.hpp"
+#include "summary.hpp"
 
-bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
+using namespace std;
+using namespace std::chrono;
+
+bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary)
 {
   size_t index = 0;
   while (index < sequence.size())
@@ -66,7 +70,7 @@ bool VNDFull(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   return true;
 }
 
-bool VNDFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
+bool VNDFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary)
 {
   size_t index = 0;
   while (index < sequence.size())
@@ -132,7 +136,7 @@ bool VNDFullSim(function<int(void)> evaluationFunction, vector<int> &evaluationV
   return true;
 }
 
-bool VNDCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
+bool VNDCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary)
 {
   size_t index = 0;
   while (index < sequence.size())
@@ -198,7 +202,7 @@ bool VNDCrit(function<int(void)> evaluationFunction, vector<int> &evaluationVect
   return true;
 }
 
-bool VNDCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence)
+bool VNDCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationVector, const vector<int> &sequence, Summary &summary)
 {
   size_t index = 0;
   while (index < sequence.size())

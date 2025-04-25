@@ -1,8 +1,12 @@
 #include "io.hpp"
-Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence)
+
+using namespace std::chrono;
+using namespace std;
+
+Instance singleRun(string inputFileName, ofstream &outputFile, int run, int objective, const vector<int> &sequence, Summary &summary, Settings &settings)
 {
   double runningTime;
-  readProblem(inputFileName);
+  readProblem(inputFileName, settings);
   checkMachinesEligibility();
 
   t1 = high_resolution_clock::now();
@@ -10,13 +14,13 @@ Instance singleRun(string inputFileName, ofstream &outputFile, int run, int obje
   switch (objective)
   {
   case 1:
-    ILSFull(GPCA, npmCurrentToolSwitches, sequence);
+    ILSFull(GPCA, npmCurrentToolSwitches, sequence, summary, settings);
     break;
   case 2:
-    ILSCrit(makespanEvaluation, npmCurrentMakespan, sequence);
+    ILSCrit(makespanEvaluation, npmCurrentMakespan, sequence, summary, settings);
     break;
   case 3:
-    ILSFull(flowtimeEvaluation, npmCurrentFlowTime, sequence);
+    ILSFull(flowtimeEvaluation, npmCurrentFlowTime, sequence, summary, settings);
     break;
   }
 
@@ -31,7 +35,7 @@ Instance singleRun(string inputFileName, ofstream &outputFile, int run, int obje
   return ins;
 }
 
-void readProblem(string fileName)
+void readProblem(string fileName, Settings &settings)
 {
   int aux;
   ifstream fpIn(fileName);
@@ -46,7 +50,7 @@ void readProblem(string fileName)
     npmMagazineCapacity.push_back(aux);
   }
 
-  initialization();
+  initialization(settings);
 
   for (int i = 0; i < machineCount; i++)
   {
@@ -100,12 +104,12 @@ void registerTimeTracking()
   }
 }
 
-void initialization()
+void initialization(Settings &s)
 {
   toolsRequirements.resize(toolCount);
   npmJobTime.resize(machineCount);
   npmJobAssignement.resize(machineCount);
-  randomTools.resize(ceil(oneBlockPercentage * toolCount));
+  randomTools.resize(ceil(s.oneBlockPercentage * toolCount));
   iota(randomTools.begin(), randomTools.end(), 0);
   similarityMatrix.resize(jobCount);
   for (int i = 0; i < jobCount; i++)
@@ -243,10 +247,10 @@ void printSolution(string inputFileName, double runningTime, int objective, int 
   s << "--- TIME TRACKING : " << timeTracking << endl;
 }
 
-void printSummary(string input)
+void printSummary(string input, Summary &summary, Settings &s)
 {
   cout << "Input: " << input << endl;
-  cout << "Objective: " << objective << endl;
+  cout << "Objective: " << s.objective << endl;
   cout << "# -------------------------------- #" << endl;
   cout << "Average Bests TS: " << (int)round(summary.getBestsMean(1)) << " (" << fixed << setprecision(2) << summary.getBestsMean(1) << ")" << endl;
   cout << "Mean TS: " << (int)round(summary.getGeneralMean(1)) << " (" << fixed << setprecision(2) << summary.getGeneralMean(1) << ")" << endl;
@@ -262,80 +266,20 @@ void printSummary(string input)
   cout << "Mean Execution Time : " << fixed << setprecision(2) << summary.getMeanExecutionTime() << endl;
   cout << "Trajectory : " << summary.getTrajectoryData();
   cout << "LS Improvements : " << summary.localSearchImprovements;
-  if (outputFile.is_open())
+  if (s.outputFile.is_open())
   {
-    outputFile << "--------- SUMMARY ---------" << endl
-               << endl;
-    outputFile << "Input: " << input << endl;
-    outputFile << "Objective: " << objective << endl;
-    outputFile << "Average TS: " << (int)round(summary.getBestsMean(1)) << " (" << fixed << setprecision(2) << summary.getBestsMean(1) << ")" << endl;
-    outputFile << "Average Makespan: " << (int)round(summary.getBestsMean(2)) << " (" << fixed << setprecision(2) << summary.getBestsMean(2) << ")" << endl;
-    outputFile << "Average Flowtime: " << (int)round(summary.getBestsMean(3)) << " (" << fixed << setprecision(2) << summary.getBestsMean(3) << ")" << endl;
-    outputFile << "Mean Standard Deviation TS: " << fixed << setprecision(2) << summary.getMeanStandardDeviation(1) << endl;
-    outputFile << "Mean Standard Deviation Makespan: " << fixed << setprecision(2) << summary.getMeanStandardDeviation(2) << endl;
-    outputFile << "Mean Standard Deviation Flowtime: " << fixed << setprecision(2) << summary.getMeanStandardDeviation(3) << endl;
-    outputFile << "Trajectory : " << summary.getTrajectoryData();
-    outputFile << "LS Improvements : " << summary.localSearchImprovements;
-  }
-}
-
-void parseArguments(vector<string> arguments)
-{
-  for (int i = 0; i < (int)arguments.size(); i++)
-  {
-    if (arguments[i] == "--objective")
-    {
-      objective = stoi(arguments[i + 1]);
-      if (objective < 1 || objective > 3)
-        throw invalid_argument("ERROR : Objective not well informed. Must be 1 (TS), 2 (makespan) or 3 (flowtime)");
-    }
-    else if (arguments[i] == "--runs")
-      runs = stoi(arguments[i + 1]);
-    else if (arguments[i] == "--iterations")
-      maxIterations = stoi(arguments[i + 1]);
-    else if (arguments[i] == "--instance")
-      instance = (arguments[i + 1]);
-    else if (arguments[i] == "--similarity_percentage")
-      similarityPercentage = stof(arguments[i + 1]);
-    else if (arguments[i] == "--critic_job_percentage")
-      criticJobPercentage = stof(arguments[i + 1]);
-    else if (arguments[i] == "--disturb_size")
-      disturbSize = stof(arguments[i + 1]);
-    else if (arguments[i] == "--one_block_percentage")
-      oneBlockPercentage = stof(arguments[i + 1]);
-    else if (arguments[i] == "--input")
-    {
-      inputFileName = arguments[i + 1];
-      fpIndex.open(arguments[i + 1]);
-      if (!fpIndex.is_open())
-        throw invalid_argument("ERROR : Input file doesn't exist");
-    }
-    else if (arguments[i] == "--output")
-    {
-      // if(fileExists(arguments[i + 1])) {
-      //     cout << "Output file \"" << arguments[i + 1] << "\" already exists. Overwrite? ";
-      //     cin >> ans;
-      //     if(ans == "n" || ans == "no")
-      //         exit(0);
-      // }
-      outputFile.open(arguments[i + 1]);
-    }
-    else if (arguments[i] == "--sequence")
-    {
-      string seqStr = arguments[i + 1];
-      sequence.clear();
-      for (char ch : seqStr)
-      {
-        if (isdigit(ch))
-        {
-          sequence.push_back(ch - '0');
-        }
-        else
-        {
-          throw invalid_argument("ERROR: Sequence must contain only digits.");
-        }
-      }
-    }
+    s.outputFile << "--------- SUMMARY ---------" << endl
+                 << endl;
+    s.outputFile << "Input: " << input << endl;
+    s.outputFile << "Objective: " << s.objective << endl;
+    s.outputFile << "Average TS: " << (int)round(summary.getBestsMean(1)) << " (" << fixed << setprecision(2) << summary.getBestsMean(1) << ")" << endl;
+    s.outputFile << "Average Makespan: " << (int)round(summary.getBestsMean(2)) << " (" << fixed << setprecision(2) << summary.getBestsMean(2) << ")" << endl;
+    s.outputFile << "Average Flowtime: " << (int)round(summary.getBestsMean(3)) << " (" << fixed << setprecision(2) << summary.getBestsMean(3) << ")" << endl;
+    s.outputFile << "Mean Standard Deviation TS: " << fixed << setprecision(2) << summary.getMeanStandardDeviation(1) << endl;
+    s.outputFile << "Mean Standard Deviation Makespan: " << fixed << setprecision(2) << summary.getMeanStandardDeviation(2) << endl;
+    s.outputFile << "Mean Standard Deviation Flowtime: " << fixed << setprecision(2) << summary.getMeanStandardDeviation(3) << endl;
+    s.outputFile << "Trajectory : " << summary.getTrajectoryData();
+    s.outputFile << "LS Improvements : " << summary.localSearchImprovements;
   }
 }
 

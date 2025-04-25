@@ -3,17 +3,30 @@ SRC_DIR := src
 INCLUDE_DIR := include
 BUILD_DIR := build
 BIN_DIR := bin
-BIN := $(BIN_DIR)/ssp_npm_solver.out
 
-# Compiler
+# Detectar sistema operacional
+ifeq ($(OS),Windows_NT)
+    EXE := .exe
+    DEL_FILE := del /Q
+    RMDIR := rmdir /S /Q
+    MKDIR = if not exist "$(subst /,\,$(1))" mkdir "$(subst /,\,$(1))"
+else
+    EXE :=
+    DEL_FILE := rm -f
+    RMDIR := rm -rf
+    MKDIR = mkdir -p $(1)
+endif
+
+# Nome final do binário
+BIN := $(BIN_DIR)/ssp_npm_solver$(EXE)
+
+# Compilador e flags
 CXX := g++
-CXXFLAGS := -std=c++17 -Wall -I$(INCLUDE_DIR)
+CXXFLAGS := -std=c++17 -Wall -I$(INCLUDE_DIR) -I$(SRC_DIR)
 
-# Flags para modos
 RELEASE_FLAGS := -O3 -march=native
 DEBUG_FLAGS := -g -O0
 
-# Modo padrão
 MODE ?= release
 
 ifeq ($(MODE),release)
@@ -24,31 +37,31 @@ else
 	$(error Unknown MODE: $(MODE). Use 'release' or 'debug')
 endif
 
-# Fontes e objetos
-SRCS := $(wildcard $(SRC_DIR)/*.cpp)
-OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
+# Busca todos os arquivos .cpp dentro de src/
+SRCS := $(wildcard $(SRC_DIR)/**/*.cpp) $(wildcard $(SRC_DIR)/*.cpp)
+# Gera os .o correspondentes, mantendo a estrutura de diretórios
+OBJS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(SRCS))
 
-# Target principal
+# Target padrão
 all: $(BIN)
 
 # Linkagem final
 $(BIN): $(OBJS)
-	@mkdir -p $(BIN_DIR)
+	@$(call MKDIR,$(BIN_DIR))
 	$(CXX) $^ -o $@
 
-# Compilação dos .cpp em .o
+# Compilação dos .cpp para .o
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(BUILD_DIR)
+	@$(call MKDIR,$(dir $@))
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Limpeza dos arquivos gerados
+# Limpeza
 clean:
-	rm -rf $(BUILD_DIR) $(BIN_DIR)
+	$(RMDIR) $(BUILD_DIR) $(BIN_DIR)
 
-# Debug específico
+# Modos
 debug:
 	$(MAKE) MODE=debug
 
-# Release explícito
 release:
 	$(MAKE) MODE=release
