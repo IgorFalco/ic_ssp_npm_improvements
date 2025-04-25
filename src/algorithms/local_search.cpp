@@ -1,5 +1,7 @@
 #include "local_search.hpp"
 #include "summary.hpp"
+#include <random>  // para std::shuffle e std::default_random_engine
+#include <algorithm>  // para std::shuffle
 
 using namespace std;
 using namespace std::chrono;
@@ -270,7 +272,13 @@ bool VNDCritSim(function<int(void)> evaluationFunction, vector<int> &evaluationV
 
 bool jobInsertionLocalSearchFull(function<int(void)> evaluationFunction, vector<int> &evaluationVector, int currentBest)
 {
-  for (int l = 0; l < machineCount; l++)
+  vector<int> machineIndices(machineCount);
+  iota(machineIndices.begin(), machineIndices.end(), 0);
+  static std::random_device rd;
+  static std::mt19937 g(rd());
+  std::shuffle(machineIndices.begin(), machineIndices.end(), g);
+
+  for (int l : machineIndices)
   {
     for (int i = 0; i < (int)npmJobAssignement[l].size(); i++)
     {
