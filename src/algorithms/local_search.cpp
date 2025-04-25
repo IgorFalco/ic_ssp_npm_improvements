@@ -279,6 +279,7 @@ bool jobInsertionLocalSearchFull(function<int(void)> evaluationFunction, vector<
   std::shuffle(machineIndices.begin(), machineIndices.end(), g);
 
   for (int l : machineIndices)
+  // for (int l = 0; l < machineCount; l++)
   {
     for (int i = 0; i < (int)npmJobAssignement[l].size(); i++)
     {

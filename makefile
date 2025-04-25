@@ -6,7 +6,7 @@ BIN_DIR := bin
 
 # Detectar sistema operacional
 ifeq ($(OS),Windows_NT)
-    EXE := .out
+    EXE := .exe
     DEL_FILE := del /Q
     RMDIR := rmdir /S /Q
     MKDIR = if not exist "$(subst /,\,$(1))" mkdir "$(subst /,\,$(1))"
